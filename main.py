@@ -1,30 +1,31 @@
-#!/usr/bin/env python3
-"""news-image-20261119: write the day's news image to /output/entry.png.
+"""Entrypoint for the news-image-20261119 entry.
 
-The entry image is the entry.png beside this file: a front-page infographic
-summing up Thursday 19 November 2026. Thirteen core stories each get their
-own flat-illustration panel, plus more briefs in a numbered ALSO ON list and
-a world map with numbered pins tied to the core stories. The program only
-copies those exact bytes, so both runs write identical output.
+When the harness runs this file, it materialises the front-page artwork
+at /output/entry.png so the judge can read it. The artwork itself lives
+in entry.png next to this file; this script only places a copy where the
+harness expects it, and reports the size it wrote.
 """
-import os
-import shutil
+
 from pathlib import Path
-
-HERE = Path(__file__).resolve().parent
-SRC = HERE / "entry.png"
-OUT_DIR = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
+import shutil
+import sys
 
 
-def main():
-    out = OUT_DIR / "entry.png"
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(SRC, out)
-    # Guard the gate: the two runs must write the same bytes, so prove the
-    # copy is exact before exiting.
-    if out.stat().st_size != SRC.stat().st_size:
-        raise SystemExit("entry.png copy size mismatch")
+def main() -> int:
+    here = Path(__file__).resolve().parent
+    source = here / "entry.png"
+    target_dir = Path("/output")
+    target = target_dir / "entry.png"
+
+    if not source.is_file():
+        print(f"missing artwork: {source}", file=sys.stderr)
+        return 1
+
+    target_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(source, target)
+    print(f"wrote {target} ({target.stat().st_size} bytes)")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
