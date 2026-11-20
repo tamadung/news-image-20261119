@@ -1,10 +1,10 @@
 # news-image-20261119 — preparation notes
 
 ## Status
-- **19 Nov 2026 ~07:25 WIB**: scaffold ready (repo created, README + LICENSE + main.py + placeholder entry.png from kit starter). Build v1 planned for **20 Nov morning** (once the full 19 Nov news is in).
+- **20 Nov 2026 ~00:25 WIB**: **v1 BUILT** — entry.png 1024×1024 PNG (549,662 bytes), 42 stories, 14 illustrated panels + verification tags (REPORTED/CLAIM/FORECAST), region bar, numbers strip, map + 14 pins, ALSO ON 28, DATE CHECK box. Deterministic (main.py 2 runs byte-identical). Proxy A/B vs 18 Nov v3: v1 wins (14 vs 13 panels, +verification tags, +sub-headline). Commit + push below.
 - Bounty: $250, 50 paid places (1st $50, 2nd $30, 3rd $15, 4–10 $5, 11–50 $3). Deadline **21 Nov 2026 07:00 WIB** (entries_close 2026-11-21T00:00:00Z). Harness program/v1. Quota max_per_day 10 / max 20. Free entry.
-- Leaderboard at prep time: **0 entries ranked** — we are first in.
-- Kit: `~/workspace/makefun/news-image-20261119-kit/` (fresh download 19 Nov, 6,013,884 bytes). **IMPORTANT**: the 17 Nov and 18 Nov kits are level 19 while the server is level 20; all three submissions made with level-19 kits after ~16:40 WIB 18 Nov FAILED on the server (status "failed", no error, no score) — including a retest of the working v2 commit/bundle. Other users' entries are still being scored. The fresh 19 Nov kit may be level 20 and may fix the issue; verify the kit level and test carefully before burning attempts.
+- Leaderboard at build time (20 Nov ~00:15 WIB): **10,953 entries**; #1 "November 19 front page v3" (hazel-harbor-63, 99.23%), #2 "Precise Lemma" (izayoi-20, 99.23%), #4 lomfi 19-story focus entry (99.14%). Template studied from #1/#2/#4 artifacts (downloaded to work dir winners/).
+- Kit: `~/workspace/makefun/news-image-20261119-kit/` (FRESH, CLI d17c2d22, harness 20d96c66 — BERBEDA/baru vs kit 17/18 Nov level 19). **Submit with this fresh kit; verify entry reaches "finished".**
 
 ## Template (winner pattern, from 17/18 Nov + #1 ronigrv/icantcodefyi)
 - Cream paper, serif masthead with the day ("Thursday 19 November 2026").
